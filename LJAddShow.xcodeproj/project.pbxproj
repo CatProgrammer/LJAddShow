@@ -16,6 +16,10 @@
 		F4624DC51F4AD9C200BFF8AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4624DC31F4AD9C200BFF8AF /* LaunchScreen.storyboard */; };
 		F4624DD01F4AD9C200BFF8AF /* LJAddShowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F4624DCF1F4AD9C200BFF8AF /* LJAddShowTests.m */; };
 		F4624DDB1F4AD9C200BFF8AF /* LJAddShowUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F4624DDA1F4AD9C200BFF8AF /* LJAddShowUITests.m */; };
+		F4624DEE1F4ADA6D00BFF8AF /* LJDailyCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F4624DEC1F4ADA6D00BFF8AF /* LJDailyCache.m */; };
+		F4624DF11F4ADAC400BFF8AF /* LJAddShow.m in Sources */ = {isa = PBXBuildFile; fileRef = F4624DF01F4ADAC400BFF8AF /* LJAddShow.m */; };
+		F4624DF41F4ADBAA00BFF8AF /* LJAddWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4624DF31F4ADBAA00BFF8AF /* LJAddWebViewController.m */; };
+		F4624DF61F4AE12900BFF8AF /* adimage.png in Resources */ = {isa = PBXBuildFile; fileRef = F4624DF51F4AE12900BFF8AF /* adimage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,13 @@
 		F4624DD61F4AD9C200BFF8AF /* LJAddShowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LJAddShowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4624DDA1F4AD9C200BFF8AF /* LJAddShowUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LJAddShowUITests.m; sourceTree = "<group>"; };
 		F4624DDC1F4AD9C200BFF8AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4624DEB1F4ADA6D00BFF8AF /* LJDailyCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJDailyCache.h; sourceTree = "<group>"; };
+		F4624DEC1F4ADA6D00BFF8AF /* LJDailyCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJDailyCache.m; sourceTree = "<group>"; };
+		F4624DEF1F4ADAC400BFF8AF /* LJAddShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJAddShow.h; sourceTree = "<group>"; };
+		F4624DF01F4ADAC400BFF8AF /* LJAddShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJAddShow.m; sourceTree = "<group>"; };
+		F4624DF21F4ADBAA00BFF8AF /* LJAddWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJAddWebViewController.h; sourceTree = "<group>"; };
+		F4624DF31F4ADBAA00BFF8AF /* LJAddWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJAddWebViewController.m; sourceTree = "<group>"; };
+		F4624DF51F4AE12900BFF8AF /* adimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adimage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,12 +114,13 @@
 		F4624DB11F4AD9C200BFF8AF /* LJAddShow */ = {
 			isa = PBXGroup;
 			children = (
+				F4624DE81F4AD9FB00BFF8AF /* LJAddShow */,
 				F4624DB51F4AD9C200BFF8AF /* AppDelegate.h */,
 				F4624DB61F4AD9C200BFF8AF /* AppDelegate.m */,
 				F4624DB81F4AD9C200BFF8AF /* ViewController.h */,
 				F4624DB91F4AD9C200BFF8AF /* ViewController.m */,
-				F4624DBB1F4AD9C200BFF8AF /* Main.storyboard */,
 				F4624DC11F4AD9C200BFF8AF /* Assets.xcassets */,
+				F4624DBB1F4AD9C200BFF8AF /* Main.storyboard */,
 				F4624DC31F4AD9C200BFF8AF /* LaunchScreen.storyboard */,
 				F4624DC61F4AD9C200BFF8AF /* Info.plist */,
 				F4624DBE1F4AD9C200BFF8AF /* LJAddShow.xcdatamodeld */,
@@ -141,6 +153,20 @@
 				F4624DDC1F4AD9C200BFF8AF /* Info.plist */,
 			);
 			path = LJAddShowUITests;
+			sourceTree = "<group>";
+		};
+		F4624DE81F4AD9FB00BFF8AF /* LJAddShow */ = {
+			isa = PBXGroup;
+			children = (
+				F4624DF51F4AE12900BFF8AF /* adimage.png */,
+				F4624DEB1F4ADA6D00BFF8AF /* LJDailyCache.h */,
+				F4624DEC1F4ADA6D00BFF8AF /* LJDailyCache.m */,
+				F4624DEF1F4ADAC400BFF8AF /* LJAddShow.h */,
+				F4624DF01F4ADAC400BFF8AF /* LJAddShow.m */,
+				F4624DF21F4ADBAA00BFF8AF /* LJAddWebViewController.h */,
+				F4624DF31F4ADBAA00BFF8AF /* LJAddWebViewController.m */,
+			);
+			path = LJAddShow;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +236,7 @@
 				TargetAttributes = {
 					F4624DAE1F4AD9C200BFF8AF = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = QJRUZXRZDN;
 						ProvisioningStyle = Automatic;
 					};
 					F4624DCA1F4AD9C200BFF8AF = {
@@ -251,6 +278,7 @@
 			files = (
 				F4624DC51F4AD9C200BFF8AF /* LaunchScreen.storyboard in Resources */,
 				F4624DC21F4AD9C200BFF8AF /* Assets.xcassets in Resources */,
+				F4624DF61F4AE12900BFF8AF /* adimage.png in Resources */,
 				F4624DBD1F4AD9C200BFF8AF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +308,9 @@
 				F4624DB71F4AD9C200BFF8AF /* AppDelegate.m in Sources */,
 				F4624DC01F4AD9C200BFF8AF /* LJAddShow.xcdatamodeld in Sources */,
 				F4624DB41F4AD9C200BFF8AF /* main.m in Sources */,
+				F4624DF11F4ADAC400BFF8AF /* LJAddShow.m in Sources */,
+				F4624DEE1F4ADA6D00BFF8AF /* LJDailyCache.m in Sources */,
+				F4624DF41F4ADBAA00BFF8AF /* LJAddWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,7 +461,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = QJRUZXRZDN;
 				INFOPLIST_FILE = LJAddShow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.LJAddShow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -441,7 +474,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = QJRUZXRZDN;
 				INFOPLIST_FILE = LJAddShow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.LJAddShow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
