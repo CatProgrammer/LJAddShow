@@ -2,8 +2,8 @@
 //  LJAddShow.m
 //  LJAddShow
 //
-//  Created by 李军 on 2017/8/21.
-//  Copyright © 2017年 李军. All rights reserved.
+//  Created by Jun on 2017/8/21.
+//  Copyright © 2017年 Jun. All rights reserved.
 //
 
 #import "LJAddShow.h"
@@ -20,13 +20,13 @@
 
 @property (nonatomic, weak) UIButton* downCountButton;
 
-@property (nonatomic, assign) BOOL isNeedShowAdd;//是否需要显示广告
+@property (nonatomic, assign) BOOL enterBackground;//检查是否是伪进入后台
 
 @end
 
 @implementation LJAddShow
 
-//在load 方法中，启动监听，可以做到无注入
+//在load 方法中，启动监听，可以做到无侵入
 + (void)load {
     
     [self shareInstance];
@@ -48,32 +48,45 @@
     
     if (self) {
         
-        //尽量不要在初始化的代码里面做别的事，防止对主线程的卡顿和其他情况
-        
         //应用启动, 首次开屏广告
-        [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidFinishLaunchingNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        [[NSNotificationCenter defaultCenter]
+         addObserverForName:UIApplicationDidFinishLaunchingNotification
+                     object:nil
+                      queue:nil
+                 usingBlock:^(NSNotification * _Nonnull note) {
             //要等DidFinished方法结束后才能初始化UIWindow，不然会检测是否有rootViewController
             
-            self.isNeedShowAdd = YES;
+            self.enterBackground = YES;// 标志位初始化
             
+            //检查是否满足条件显示广告
             [self checkAD];
         }];
         //进入后台
-        [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidEnterBackgroundNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        [[NSNotificationCenter defaultCenter]
+         addObserverForName:UIApplicationDidEnterBackgroundNotification
+                     object:nil
+                      queue:nil
+                 usingBlock:^(NSNotification * _Nonnull note) {
             
-            if (self.isNeedShowAdd) {
+            if (self.enterBackground) {
                 
-                [self request];
+                // 请求新的广告数据
+                [self requestADData];
             }
         }];
         //后台启动,二次开屏广告
-        [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillEnterForegroundNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        [[NSNotificationCenter defaultCenter]
+         addObserverForName:UIApplicationWillEnterForegroundNotification
+                     object:nil
+                      queue:nil
+                 usingBlock:^(NSNotification * _Nonnull note) {
             
-            if (self.isNeedShowAdd) {
+            if (self.enterBackground) {
                 
+                //检查是否满足条件显示广告
                 [self checkAD];
             }
-            self.isNeedShowAdd = YES;
+            self.enterBackground = YES; // 标志位
         }];
         
         // 检测锁屏和解锁
@@ -95,13 +108,15 @@ static void displayStatusChanged(CFNotificationCenterRef center,
                                  CFDictionaryRef userInfo) {
     
     // 每次锁屏和解锁都会发这个通知，第一次是锁屏，第二次是解锁，交替进行  注：只有应用在前台锁、开屏才会走该通知  程序处于后台并不会走该通知（坑）
-    [LJAddShow shareInstance].isNeedShowAdd = NO;
+    [LJAddShow shareInstance].enterBackground = NO; // 标志位
 }
 
-- (void)request {
-    //请求新的广告数据
+#pragma mark --请求新的广告数据
+- (void)requestADData {
+    
 }
 
+#pragma mark --检测是否需要以及能够显示广告
 - (void)checkAD {
     
     //这里进行次数判断，一般情况下这个次数可以做远程请求，不过为了方便做本地化处理，一天显示的广告的次数是有上限的，优化用户体验 并且也许判断用户切换时间是否足够长
