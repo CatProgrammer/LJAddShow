@@ -12,6 +12,8 @@
 
 #import "LJDailyCache.h"
 
+#define INTERVALTIME @"INTERVALTIME" // 间隔时间
+
 @interface LJAddShow()
 
 @property (nonatomic, strong) UIWindow* window;
@@ -113,6 +115,9 @@ static void displayStatusChanged(CFNotificationCenterRef center,
 
 #pragma mark --请求新的广告数据
 - (void)requestADData {
+    
+    // 此为准确的进入后台行为 这里需要向NSUserDefaults里面写入进入后台的时间点
+    [[LJDailyCache shareInstance] writeWithKey:INTERVALTIME value:[NSString stringWithFormat:@"%f",[[NSDate date]timeIntervalSince1970]]];
     
 }
 
